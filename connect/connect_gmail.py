@@ -39,8 +39,11 @@ def connect_gmail():
     logger.info("Started with the Gmail Authentication")
     # Call the Gmail API
     service = build("gmail", "v1", credentials=creds)
+    print("Service:", service)
     results = service.users().labels().list(userId="me").execute()
     labels = results.get("labels", [])
+    profile = service.users().getProfile(userId="me").execute()
+    connected_user_email = profile["emailAddress"]
 
     if not labels:
       print("No labels found.")
@@ -52,11 +55,50 @@ def connect_gmail():
     logger.info("Authenticaion completed")
     logger.info("Connected to Gmail API successfully")
 
+    return service, connected_user_email
+
   except HttpError as error:
     # TODO(developer) - Handle errors from gmail API.
     print(f"An error occurred: {error}")
     logger.error(f"Cant connect to the Gmail API due to {error}")
 
+
+
+# def get_gmail_service():
+
+#     creds = None
+
+#     if os.path.exists("token.json"):
+#         creds = Credentials.from_authorized_user_file(
+#             "token.json",
+#             SCOPES
+#         )
+
+#     if not creds or not creds.valid:
+
+#         if creds and creds.expired and creds.refresh_token:
+#             creds.refresh(Request())
+
+#         else:
+#             flow = InstalledAppFlow.from_client_secrets_file(
+#                 "credentials.json",
+#                 SCOPES
+#             )
+
+#             creds = flow.run_local_server(port=0)
+
+#         with open("token.json", "w") as token:
+#             token.write(creds.to_json())
+
+#     service = build(
+#         "gmail",
+#         "v1",
+#         credentials=creds
+#     )
+
+#     logger.info("Connected to Gmail API successfully")
+
+#     return service
 
 if __name__ == "__main__":
   connect_gmail()
