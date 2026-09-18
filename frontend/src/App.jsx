@@ -1,0 +1,24 @@
+import { useState } from 'react'
+import heroImg from './assets/hero.png'
+import reactLogo from './assets/react.svg'
+import viteLogo from './assets/vite.svg'
+import './App.css'
+
+import Dashboard from './components/Dashboard'
+import Commitment from './components/Commitment'
+
+function App() {
+  
+
+  return (
+    <>
+      
+
+      <Dashboard/>
+      {/* <Commitment/> */}
+
+    </>
+  )
+}
+
+export default App

@@ -1,0 +1,129 @@
+* {
+    box-sizing: border-box;
+    list-style: none;
+    /* height: auto; */
+  }
+  
+  .app {
+    min-height: 100vh;
+    padding: 40px;
+    background: #0f172a;
+  }
+  
+  .dashboard {
+    width: 100%;
+    max-width: 1100px;
+    height: calc(100vh - 60px);
+    margin: 0 auto;
+    padding: 40px;
+    background: #172033;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #f8fafc;
+    text-align: center;
+  }
+  
+  .dashboard > p {
+    margin-top: 8px;
+    color: #94a3b8;
+    font-size: 15px;
+    text-align: center;
+  }
+  
+  /* Section buttons */
+  
+  .sections {
+    display: flex;
+    gap: 10px;
+    margin-top: 35px;
+    padding: 6px;
+    background: #111827;
+    border-radius: 10px;
+  }
+  
+  .sections button {
+    flex: 1;
+    padding: 13px 20px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .sections button:hover {
+    color: #f8fafc;
+  }
+  
+  .sections button.active {
+    background: #334155;
+    color: #ffffff;
+  }
+  
+  /* Content */
+  
+  .content {
+    margin-top: 35px;
+  }
+  
+  .content h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #f8fafc;
+  }
+  
+  /* Responsive */
+  
+  @media (max-width: 700px) {
+    .app {
+      padding: 20px;
+    }
+  
+    .dashboard {
+      padding: 25px;
+    }
+  
+    .sections {
+      flex-direction: column;
+    }
+  
+    .sections button {
+      width: 100%;
+    }
+  }
+
+  .connect-button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #334155;
+    color: #f8fafc;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .connect-button:hover {
+    background: #475569;
+  }
+  
+  .connect-button:active {
+    transform: scale(0.98);
+  }
+  
+  .connect-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
